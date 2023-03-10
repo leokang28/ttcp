@@ -5,7 +5,7 @@ fn main() -> io::Result<()> {
     let mut buf = [0u8; 1504];
     loop {
         let nbytes = _tap.recv(&mut buf)?;
-        let eth_flags = u16::from_be_bytes([buf[0], buf[1]]);
+        let _eth_flags = u16::from_be_bytes([buf[0], buf[1]]);
         let eth_protocal = u16::from_be_bytes([buf[2], buf[3]]);
         if eth_protocal != 0x800 {
             // ipv4 only
@@ -40,5 +40,4 @@ fn main() -> io::Result<()> {
         //     header
         // );
     }
-    Ok(())
 }
